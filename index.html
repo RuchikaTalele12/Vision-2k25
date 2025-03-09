@@ -1,0 +1,2579 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="animationnav.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0px;
+
+        }
+
+        .side-bar {
+            color: white;
+            width: 300px;
+            flex-shrink: 0;
+            display: flex;
+            padding: 10px;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .bg-container {
+            display: flex;
+            flex-grow: 1;
+            height: 100vh;
+
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #f6f8fa;
+            font-family: "Roboto";
+            font-size: 18px;
+            flex-grow: 1;
+            flex-shrink: 0;
+            overflow: auto;
+            flex-wrap: wrap;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/003/334/408/non_2x/paddy-rice-and-rice-seed-in-farm-organic-rice-field-and-agriculture-free-photo.jpg');
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .ccts {
+            background-color: white;
+        }
+
+        .shift {
+            position: fixed;
+            bottom: 13px;
+            right: 150px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+        @media only screen and (max-width: 1200px) {
+            .view {
+                width: 100vw;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .view {
+                width: 180vw;
+                /* Ensure it doesn't exceed viewport width */
+                object-fit: cover;
+            }
+        }
+
+        body {
+            overflow-x: hidden;
+            /* Prevent horizontal overflow */
+        }
+
+
+
+        .translate {
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            padding: 10px;
+        }
+
+        .buttonn {
+            transform: scale(0.9);
+        }
+
+        .sticky1 {
+            position: sticky;
+            top: 0;
+            left: 3px;
+            /* Ensure 'px' or another unit is specified */
+            z-index: 1000;
+            background-color: white;
+        }
+
+        /* Optional shadow for the sticky element */
+        .shadow {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Optional padding and border-radius for a more polished look */
+        .search-box {
+            padding: 5px;
+            border-radius: 6px;
+        }
+
+
+        .mainc {
+            z-index: 700;
+        }
+
+        @font-face {
+            font-family: 'Copperplate Gothic Bold';
+            src: url('path/to/your/font/CopperplateGothicBold.woff2') format('woff2'),
+                url('path/to/your/font/CopperplateGothicBold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .web-name1 {
+            position: absolute;
+            top: 10%;
+            left: 41%;
+            font-size: 35px;
+
+            font-family: playfair;
+            font-style: italic;
+            /* Use Cinzel as an alternative */
+            z-index: 900;
+            filter: drop-shadow(6px 8px 8px black);
+        }
+
+        .web-name2 {
+            position: absolute;
+            top: 22%;
+            left: 40%;
+            font-size: 35px;
+
+            font-family: playfair;
+            font-style: italic;
+            /* Use Cinzel as an alternative */
+            z-index: 900;
+            filter: drop-shadow(6px 8px 8px black);
+        }
+
+        .web-name3 {
+            position: absolute;
+            top: 22%;
+            left: 40%;
+            font-size: 35px;
+
+            font-family: playfair;
+            font-style: italic;
+            /* Use Cinzel as an alternative */
+            z-index: 900;
+            filter: drop-shadow(6px 8px 8px black);
+        }
+
+        .web-name4 {
+            position: sticky;
+            top: 26%;
+            left: 1%;
+            font-size: 85px;
+
+            font-family: playfair;
+            font-style: italic;
+            /* Use Cinzel as an alternative */
+            z-index: 900;
+            filter: drop-shadow(6px 8px 8px black);
+        }
+
+        .web-name5 {
+            position: absolute;
+            top: 26%;
+            left: 1%;
+            font-size: 55px;
+
+            font-family: playfair;
+            font-style: italic;
+            /* Use Cinzel as an alternative */
+            z-index: 900;
+            filter: drop-shadow(6px 8px 8px black);
+        }
+
+        .web-name6 {
+            position: absolute;
+            top: 26%;
+            left: 1%;
+            font-size: 55px;
+
+            font-family: playfair;
+            font-style: italic;
+            /* Use Cinzel as an alternative */
+            z-index: 900;
+            filter: drop-shadow(6px 8px 8px black);
+        }
+
+        .shadow {
+            filter: drop-shadow(7px, 2px 3px, black);
+        }
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .light {
+            font-weight: 300;
+        }
+
+        .regular {
+            font-weight: 400;
+        }
+
+        .medium {
+            font-weight: 500;
+        }
+
+        .semi-bold {
+            font-weight: 600;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .image-container {
+            background-image: url("https://img.freepik.com/premium-photo/kisan-diwas-vector-illustration-kisan-diwasart-work_837518-30420.jpg?w=1060");
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .image-container1 {
+            background-image: url("https://img.freepik.com/premium-photo/indian-agriculture-working_1234738-169690.jpg?w=1060");
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .image-container2 {
+            background-image: url("https://img.freepik.com/free-photo/adult-nature-coffee-harvesting_23-2151711476.jpg?t=st=1725034638~exp=1725038238~hmac=386be22e27020de282513d61d7f4b16d60a3c21f2330af77c88552e8378a8d37&w=1060");
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container3 {
+            background-image: url("https://img.freepik.com/free-photo/adult-harvesting-coffee_23-2151711609.jpg?t=st=1725035368~exp=1725038968~hmac=36241476c3f2f253241bf0452c6ce269fd229491f37f0976b10daa4ee460e24b&w=1060");
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container4 {
+            background-image: url("https://img.freepik.com/premium-photo/farmer-analyzing-crop-data-digital-tablet-field_24623-1315.jpg?w=1060");
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container5 {
+            background-image: url("https://img.freepik.com/premium-photo/smart-farming-digital-technology-agriculture-app_1029473-634910.jpg?w=996");
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container6 {
+            background-image: url("https://img.freepik.com/premium-photo/kisan-diwas-vector-illustration-kisan-diwasart-work_837518-30420.jpg?w=1060");
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container7 {
+            background-image: url("https://img.freepik.com/premium-photo/bokeh-green-background-female-hand-holding-tree-nature-field-grass-forest-conservation-concept_1280668-237.jpg?w=900");
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+        }
+
+
+        .gog {
+            text-shadow: 0 0 5px white;
+        }
+
+        .but6 {
+            border-radius: 5px;
+            background-color: #d9d9d9;
+            color: white;
+            font-family: "Roboto";
+            border-style: none;
+            cursor: "not-allowed";
+        }
+
+        .b7 {
+
+            transition: background-color 1s;
+            background-color: #c9c9c3;
+        }
+
+        .b7:hover {
+            background-color: #f7231b;
+            transition: background-color 0.2s, color 0.2s;
+            color: white;
+        }
+
+        .b7:active {
+            background-color: #f7231b;
+
+            color: white;
+        }
+
+        .H1 {
+            letter-spacing: 1px;
+            color: white;
+            font-size: 30px;
+
+        }
+
+        .span1 {
+
+            color: white;
+            font-family: fantasy;
+
+        }
+
+        .input12 {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .ima:hover {
+            transform: scale(1.1);
+
+        }
+
+        .ima {
+            transition: transform 0.2s ease;
+        }
+
+        .pp {
+
+
+            letter-spacing: 0.3px;
+
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            width: 100%;
+            display: -webkit-box;
+            overflow-wrap: break-word;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+
+        }
+
+        .right:hover {
+            margin-left: 20px;
+            transition: margin-left 0.2s;
+
+
+        }
+
+        .image {
+            height: 230px;
+            width: 300px;
+            object-fit: cover;
+            border-radius: 7px;
+        }
+
+
+
+        body,
+        button,
+        textarea,
+        input,
+        input::-webkit-input-placeholder {
+            font-family: Okra, Helvetica, sans-serif;
+        }
+
+        body,
+        button,
+        input,
+        input::placeholder {
+            font-family: Okra, Helvetica, sans-serif;
+        }
+
+        .cct:hover {
+            transform: scale(0.9);
+            transition: transform 0.2s;
+        }
+
+        @media (max-width: 480px) {
+            .iDetRV {
+                padding: 0px 1rem;
+                font-size: 1.4rem;
+                line-height: 2.4rem;
+            }
+        }
+
+        .discount {
+            color: white;
+            font-weight: 1200;
+            position: absolute;
+            bottom: 0;
+            font-size: 20px;
+            line-height: 0;
+            padding-left: 10px;
+        }
+
+        .rupee {
+            color: white;
+            font-weight: 1200;
+
+            bottom: 0;
+
+            line-height: 0;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 190px;
+            left: 3;
+            width: 262px;
+            height: 200px;
+            border-radius: 10px;
+            background: linear-gradient(rgba(27, 30, 106, 0) 0%, rgba(27, 30, 36) 84.21%);
+        }
+
+
+
+        .p4 {
+            -webkit-font-smoothing: antialiased;
+            font-family: Basis_Grotesque_Pro;
+            font-weight: 200;
+            font-size: 16px;
+
+            letter-spacing: -0.3px;
+            color: rgba(2, 6, 12, 0.6);
+
+            width: 100%;
+
+            overflow-wrap: break-word;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+
+        .imageeee {
+            width: 262px;
+            height: 380px;
+            object-fit: cover;
+
+            border-radius: 16px;
+        }
+
+        .imageeee:hover {
+
+
+            transition: transform 0.2s;
+
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .menu-card:hover .imageee {
+            opacity: 0.8;
+        }
+
+        .cct:hover .middle {
+            opacity: 1;
+            text-shadow: 0px 0px 2000000000px white;
+            font-weight: bold;
+        }
+
+        .text {
+            background-color: transparent;
+            color: white;
+            font-size: 25px;
+
+            text-shadow: 0 0 20px black;
+        }
+
+        div.sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 90px;
+            background-color: white;
+            padding: 15px;
+            font-size: 20px;
+            z-index: 100;
+        }
+
+        .cd {
+            box-shadow: 0 0 5px black;
+        }
+
+        .cd:hover {
+            box-shadow: 0 0 5px black;
+            transform: scale(1.1);
+            transition: transform 0.2s;
+        }
+
+        .igg {
+            transform: scale(1.1);
+        }
+
+        .ig {
+            transform: scale(1.02);
+        }
+
+
+        .but {
+            color: #363d38;
+            font-family: "Roboto";
+            font-size: 15px;
+            border-color: #949996;
+            border-style: solid;
+            border-radius: 30px;
+            background-color: white;
+            box-shadow: 0 0 2px #666b67;
+
+        }
+
+        body,
+        button,
+        textarea,
+        input,
+        input::-webkit-input-placeholder {
+            font-family: Okra, Helvetica, sans-serif;
+        }
+
+        body,
+        button,
+        input,
+        input::placeholder {
+            font-family: Okra, Helvetica, sans-serif;
+        }
+
+        .cct:hover {
+            transform: scale(0.9);
+            transition: transform 0.2s;
+        }
+
+        .cct {
+            transition: transform 0.2s;
+        }
+
+        @media (max-width: 480px) {
+            .iDetRV {
+                padding: 0px 1rem;
+                font-size: 1.4rem;
+                line-height: 2.4rem;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+        .b1 {
+            color: black;
+            background-color: #3ee654;
+            font-family: "Roboto";
+            font-size: 20px;
+            border-radius: 5px;
+            height: 50px;
+            width: 140px;
+            border-style: solid;
+            padding-top: 8px;
+        }
+
+        .b1:hover {
+            box-shadow: 0 0 5px white;
+            background-color: #3ee654;
+            opacity: 0.6;
+
+            transition: transform 0.2s, box-shadow 0.1s, background-image 1s;
+        }
+
+
+
+        .ppp:hover {
+            transform: scale(0.8);
+            transition: transform 0.11s;
+        }
+
+        .p3:hover {
+
+            color: black;
+        }
+
+        .p3 {
+
+            color: #6e7574;
+        }
+
+        .card-container2 {
+            border-radius: 50%;
+            background-color: black;
+        }
+
+        .card-container2 {}
+
+        .icon {
+            color: white;
+        }
+
+        .icon:hover {
+            color: gold;
+            text-shadow: 0 0 2px gold;
+            transition: color 0.2s, text-shadow 0.2s;
+            transform: rotateY(deg);
+            animation-name: icon;
+
+        }
+
+        @keyframes icon {
+            from {
+                transform: rotateX(90deg);
+            }
+
+            to {
+                transform: rotateX(350deg);
+            }
+        }
+
+        .card1 {
+            box-shadow: 0 0px 3px #e0dfda;
+            border-radius: 7px;
+            border-style: solid;
+            border-width: 0.3px;
+            border-color: #e8e7e3;
+            cursor: pointer;
+        }
+
+        .card1:hover {
+            box-shadow: 0 10px 16px #e0dfda;
+
+
+            transition: border-color 0.2s, border-width 0.2s, background-color 0.2s;
+        }
+
+        .card1 {
+            transition: border-color 0.2s, border-width 0.2s, background-color 0.2s ease;
+        }
+
+        .card1:active {
+
+            box-shadow: 0 0px 6px #e0dfda;
+            border-width: 7px;
+            border-color: #096f92;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            background-color: #e6f6ff;
+            transition: border-color 0.2s, border-width 0.2s, background-color 0.2s;
+        }
+
+
+
+
+
+
+        .carousel-caption {
+            bottom: ;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        .carousel-caption h5 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .carousel-item {
+            height: 50vh;
+            min-height: 100px;
+            border-radius: 100px;
+            background: no-repeat scroll center scroll;
+            -webkit-background-size: cover;
+            background-size: cover;
+
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .bg-containerx {
+            background-color: blue;
+        }
+
+        .summary {
+            color: #f03252;
+        }
+
+        .ab {
+            text-decoration: none;
+        }
+
+        .ab:hover {
+            color: orange;
+        }
+
+        .lp {
+            color: #1f1d1d;
+            font-size: 25px;
+
+        }
+
+        .sp {
+            color: #827d7e;
+            font-size: 20px;
+        }
+
+        .b10 {
+            font-size: 20px;
+            color: white;
+            background-color: #f73e5d;
+            border-style: none;
+            border-radius: 7px;
+            padding: 15px;
+        }
+
+        .b10:hover {
+            background-color: #f5143d;
+        }
+
+        .hr10 {
+            border: dashed 1px black;
+        }
+
+        .input {
+            border-style: solid;
+            border-radius: 10px;
+            border-width: 1px;
+            border-color: gray;
+            background-color: white;
+        }
+
+        .carousel1 {
+
+            background-color: white;
+        }
+
+        #carousel2 {
+
+            background-image: linear-gradient(to left, #94b3f2, #6d94e3, #4f81e3, #356dde, #1b58d1, #0c40a8, #083285);
+        }
+
+        #carousel3 {
+
+            background-image: linear-gradient(to left, #94b3f2, #6d94e3, #4f81e3, #356dde, #1b58d1, #0c40a8, #083285);
+        }
+
+        video {
+            border-radius: 10px;
+        }
+
+        .caro-small {
+            height: 14vh;
+            min-height: 300px;
+            background-size: cover;
+            background: scroll no-repeat center scroll;
+            -webkit-background-size: cover;
+        }
+
+        .caro4 {
+            height: 50vh;
+            min-height: 300px;
+            background-size: cover;
+            background: scroll no-repeat center scroll;
+            -webkit-background-size: cover;
+        }
+
+        .caro {
+            height: 70vh;
+            min-height: 300px;
+            background-size: cover;
+
+            -webkit-background-size: cover;
+        }
+
+        .p {
+            height: 30px;
+            width: 40px;
+            background-size: cover;
+        }
+
+        .bg {
+            background-image: url("https://b.zmtcdn.com/data/pictures/1/21054121/c55bea31aba7984253c6a69bee499e0e_featured_v2.jpg");
+            background-size: cover;
+            height: 200px;
+            width: 150px;
+            object-fit: cover;
+
+
+        }
+
+        .k {
+
+            font-size: 20px;
+
+        }
+
+        .l {
+            color: black;
+            font-size: 20px;
+
+        }
+
+        .ll {
+            color: white;
+            font-size: 20px;
+        }
+
+        .span {
+            font-weight: bold;
+
+        }
+
+        .mi {
+            height: 200px;
+            width: 100px;
+            object-fit: cover;
+        }
+
+        .cc {
+            box-shadow: 0 0 5px white;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .cc:hover {
+            box-shadow: 0 0 20px white;
+            transition: box-shadow 0.2s;
+        }
+
+        .star {
+            color: gold;
+            text-shadow: 0 0 3px #a39024, 0 0 3px #d1b932, 0 0 3px #f2d844;
+        }
+
+
+
+        .card-container {
+            background-color: white;
+        }
+
+
+        .gog {
+            text-shadow: 0 0 5px white;
+        }
+
+        .but6 {
+            border-radius: 5px;
+            background-color: #f22c61;
+            color: white;
+            font-family: "Roboto";
+            border-style: none;
+            cursor: "not-allowed";
+        }
+
+        .b7 {
+
+            transition: background-color 1s;
+            background-color: #c9c9c3;
+        }
+
+        .b7:hover {
+            background-color: #f7231b;
+            transition: background-color 0.2s, color 0.2s;
+            color: white;
+        }
+
+        .b7:active {
+            background-color: #f7231b;
+
+            color: white;
+        }
+
+
+        .image-cont {
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+
+        }
+
+        .p24 {
+            color: black;
+        }
+
+
+
+        .card24 {
+            border-style: none;
+            background-color: transparent;
+        }
+
+
+
+        body,
+        button,
+        input,
+        input::placeholder {
+            font-family: Okra, Helvetica, sans-serif;
+        }
+
+        .round-card {
+            border-radius: 50%;
+            height: 210px;
+            width: 210px;
+            background-color: white;
+            box-shadow: 0 3px 6px rgba(116, 10, 97, 0.2);
+        }
+
+        .stanza {
+            color: black;
+            font-size: 20px;
+
+        }
+
+        .food {
+            border-radius: 50%;
+        }
+
+        .title1 {
+            font-size: 30px;
+
+        }
+
+        .wrapper {
+            min-width: 300px;
+            width: 100%;
+            padding: 50px;
+            position: relative;
+        }
+
+
+
+        .prev {
+            background-color: white;
+            box-shadow: 0 3px 6px black;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            z-index: 1000;
+            font-size: 10px;
+            padding: 20px;
+            font-weight: bold;
+            position: absolute;
+
+        }
+
+
+        .carousel.dragging .card {
+            cursor: grab;
+            user-select: none;
+        }
+
+        .slide-content {
+            overflow: hidden;
+
+
+        }
+
+        .swiper-button-next {
+
+            font-size: 10px;
+            color: black;
+            position: absolute;
+            transition: all ease;
+
+        }
+
+        .swiper-button-next:active {
+
+
+            background-color: #deddd9;
+
+        }
+
+        .swiper-button-prev {
+            color: black;
+            position: absolute;
+            transition: all ease-in;
+        }
+
+        .swiper-button-prev:active {
+
+
+            background-color: #deddd9;
+
+        }
+
+        .b {
+            position: relative;
+
+
+
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+
+
+        .b .a {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
+            font-size: 15px;
+            transition: all 0.3s ease;
+            color: #878684;
+        }
+
+        .b:hover .a {
+            right: 20px;
+
+        }
+
+        .a {
+            color: black;
+        }
+
+        .card1:hover {
+            box-shadow: 0 4px 6px rgba(89, 45, 200, 0.4);
+        }
+
+        .card-container2 {
+            border-radius: 50%;
+            background-color: black;
+            height: 20px;
+            width: 20px;
+            padding: 15px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+
+        .icon {
+            color: white;
+            position: absolute;
+        }
+
+        .icon:hover {
+            color: gold;
+            text-shadow: 0 0 2px gold;
+            transition: color 0.2s, text-shadow 0.2s;
+            transform: rotateY(deg);
+            animation-name: icon;
+
+        }
+
+        .c25 {
+            display: none;
+        }
+
+        .b71:hover {
+            box-shadow: 0px 1px 3px #2e2c2c;
+            transition: transform ease;
+        }
+
+        .b71 {
+            transition: transform ease;
+            background-color: #e8e6e6;
+        }
+
+        .downa:active {
+            transform: rotate(180deg);
+
+        }
+
+        .downa:visted {
+            transform: rotate(1deg);
+        }
+
+        .downa:active {}
+
+        .hr-line {
+            background-color: black;
+            width: 1px;
+            height: 20px;
+        }
+
+        .but6:hover {
+            background-color: #fa1302;
+        }
+
+        .but6:active {
+            background-color: #f73a2d;
+        }
+
+        .hr1 {
+
+            border-top: 2px solid #b8b7b6;
+        }
+
+        .card {
+            box-shadow: 0, 0, 20px, black;
+        }
+
+        .but6 {
+            border-radius: 5px;
+            background-color: #fc392b;
+            color: white;
+            font-family: "Roboto";
+            border-style: none;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 10px;
+            /* Adjust the width */
+            height: 10px;
+            /* Adjust the height */
+            background-size: 20px 20px;
+            position: absolute;
+            top: 50%;
+            /* Adjust the size of the icon */
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            font-size: 20px;
+            /* Adjust the icon size if using font icons */
+        }
+
+        .wrapper .prev {
+            position: absolute;
+            top: 60%;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .b10 {
+            text-decoration: none;
+            position: relative;
+        }
+
+        .arrow12 {}
+
+        .b10 .arrow12 {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            right: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .b10:hover .arrow12 {
+            right: 20px;
+
+
+        }
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .light {
+            font-weight: 300;
+        }
+
+        .regular {
+            font-weight: 400;
+        }
+
+        .medium {
+            font-weight: 500;
+        }
+
+        .semi-bold {
+            font-weight: 600;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+
+
+        .ima:hover {
+            transform: scale(1.1);
+
+        }
+
+        .ima {
+            height: 40px;
+            width: 120px;
+            transition: transform 0.2s ease;
+        }
+
+        .popup {
+            width: 400px;
+            background-color: white;
+            border-radius: 6px;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            z-index: 1000;
+            transform: translate(-50%, -50%) scale(0.1);
+            padding-bottom: 40px;
+            padding-left: 50px;
+            padding-right: 50px;
+            visibility: hidden;
+            transition: all 1s ease;
+        }
+
+        .popup img {
+            margin-top: -40px;
+            filter: drop-shadow(1px 5px 5px black);
+
+        }
+
+        .ok-button {
+            width: 100%;
+            padding: 10px 0;
+            color: white;
+            background: linear-gradient(135deg, #00ff99, #009966);
+            border: 0;
+            outline: none;
+            font-size: 18px;
+            border-radius: 4px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+
+
+        .openpop {
+            visibility: visible;
+            top: 70%;
+            box-shadow: 2px 5px 6px black;
+            transform: translate(-50%, -90%) scale(1.1);
+        }
+
+        .spinner-border {
+            display: none;
+        }
+
+        .spinner-border2 {
+            display: none;
+        }
+
+        .wrapupp {
+            display: none;
+        }
+
+        .spinner-border2 {
+            width: 30px;
+            height: 30px;
+            border: 0.25em solid #f3f3f3;
+            border-top: 0.25em solid #3498db;
+            border-radius: 50%;
+            margin-bottom: 5px;
+            animation: spin 0.75s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .share-app-popup {
+            visibility: hidden;
+            transform: translate(-50%, -50%) scale(1);
+            position: sticky;
+            width: 400px;
+            bottom: 70%;
+            left: 100%;
+            background-color: white;
+            z-index: 10000;
+            border-radius: 6px;
+            box-shadow: 5px 5px 10px black;
+            transition: all 0.4s ease;
+
+        }
+
+        .share-app-popup img {
+            margin-left: -60px;
+            filter: drop-shadow(0px 5px 6px black);
+        }
+
+        .open-otp-popup {
+            visibility: visible;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        .indiacard {
+            transition: all 0.2s ease;
+            background-color: #ebf1f7;
+        }
+
+        .uaecard {
+            transition: all 0.2s ease;
+            background-color: #ebf1f7;
+        }
+
+        .indiacard:hover {
+            background-color: #f7e9f7;
+            box-shadow: 0px 3px 4px rgba(34, 212, 189, 0.5);
+        }
+
+        .uaecard:hover {
+            background-color: #f7e9f7;
+            box-shadow: 0px 3px 4px rgba(34, 212, 189, 0.5);
+        }
+
+        .uae {
+            height: 30px;
+            width: 30px;
+            border-radius: 2px;
+        }
+
+        .popup3 {
+            width: 400px;
+            z-index: 1000;
+            border-radius: 60px;
+            position: absolute;
+            cursor: pointer;
+            left: 14%;
+            transform: translate(-50%, -50%) scale(0.1);
+
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .popup2 {
+            width: 400px;
+            z-index: 1000;
+            border-radius: 60px;
+            position: absolute;
+            cursor: pointer;
+            left: 60%;
+            transform: translate(-50%, -50%) scale(0.1);
+
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+
+
+
+
+        .light {
+            font-weight: 300;
+        }
+
+        .openpop3 {
+            visibility: visible;
+            top: 20%;
+
+            transform: translate(-50%, -90%) scale(0.6);
+        }
+
+        .uaec {
+
+            display: flex;
+            align-items: center;
+        }
+
+        .angle {
+            transition: all 0.3s;
+
+        }
+
+        .angle-reverse {
+
+            transform: rotate(180deg);
+        }
+
+        .wrapupp {
+            display: none;
+        }
+
+        .emailinput {
+            transition: all 0.3s;
+        }
+
+        .email-shift {
+            margin-left: 20px;
+
+        }
+
+        .phoneinput {
+            transition: all 1s;
+            position: sticky;
+        }
+
+        .phone-shift {
+            margin-left: 20px;
+        }
+
+
+
+        .search-place::placeholder {
+
+            font-size: 17px;
+            color: #948f90;
+
+
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            font-size: 17px;
+            color: #948f90;
+        }
+
+        .search-place {
+            padding-top: 6px;
+
+
+        }
+
+        .search-place:focus {
+            outline: none;
+        }
+
+        .caret-down {
+            margin-top: 3px;
+            font-size: 20px;
+            color: #424041;
+            transition: all 0.4s;
+        }
+
+        .caret-down-onclick {
+            transform: rotate(180deg);
+        }
+
+        .navigation {
+
+            font-size: 25px;
+            color: #f5647a;
+            transition: all 0.4s;
+        }
+
+        .divider {
+
+            margin-top: 10px;
+            margin-left: 6px;
+            width: 0rem;
+            height: 1.5rem;
+            border: 0.05rem solid #b8b8b8;
+        }
+
+        .search-icon {
+            font-size: 20px;
+            margin-top: 4px;
+            color: #a6a1a2;
+        }
+
+        .spots {
+            top: 120px;
+            font-size: 18px;
+            text-align: left;
+            margin-left: 10px;
+        }
+
+        .zz {
+            transition: all 0.8s;
+        }
+
+        .img-cont {
+            cursor: grab;
+            position: relative;
+        }
+
+        .places {
+            top: 135px;
+            font-size: 15px;
+            margin-left: 10px;
+        }
+
+        .img-cont:hover .zz {
+            margin-left: 20px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 100px;
+            left: 3;
+            width: 230px;
+            height: 150px;
+            padding-bottom: 10px;
+            border-radius: 10px;
+            background: linear-gradient(rgba(27, 30, 106, 0) 0%, rgba(27, 30, 36) 99.21%);
+        }
+
+        .imgge {
+            width: 230px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .din {
+            transform: scale(1);
+        }
+
+        .search-box {
+            border-color: #bdbab9;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        .b25 {
+            color: #9c9b9a;
+            background-color: white;
+            border-radius: 5px;
+            border: solid #b5b5b3 1px;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            box-shadow: 0 2px 6px rgba(34, 45, 50, 0.2);
+        }
+
+        .b25:hover {
+            background-color: #edeae1;
+        }
+
+        .card24 {
+            border-style: none;
+            background-color: transparent;
+        }
+
+        .round-card {
+            border-radius: 50%;
+            height: 210px;
+            width: 210px;
+            background-color: white;
+            box-shadow: 0 3px 6px rgba(176, 10, 97, 0.2);
+        }
+
+        .stanza {
+            color: black;
+            font-size: 20px;
+
+        }
+
+        .food {
+            border-radius: 50%;
+            max-width: 100%;
+        }
+
+        .title1 {
+            font-size: 30px;
+
+        }
+
+        .wrapper {
+            min-width: 1200px;
+            width: 100%;
+            background-color: #;
+            padding: 50px;
+            position: relative;
+        }
+
+
+
+
+        .img0 {
+            cursor: pointer;
+        }
+
+        .prev {
+            background-color: white;
+            box-shadow: 0 3px 6px black;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            transform: scale(0.4);
+            font-size: 10px;
+            padding: 50px;
+            font-weight: bold;
+            position: absolute;
+            top: 40%;
+        }
+
+
+
+        .next {
+            background-color: white;
+            box-shadow: 0 3px 6px black;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            transform: scale(0.4);
+            font-size: 10px;
+            padding: 50px;
+            font-weight: bold;
+            position: absolute;
+            top: 40%;
+        }
+
+        .carousel.dragging .card {
+            cursor: grab;
+            user-select: none;
+        }
+
+        .slide-content {
+            overflow: hidden;
+
+        }
+
+
+        .swiper-button-next {
+            right: 0;
+            font-size: 20px;
+            color: black;
+            transition: all ease;
+        }
+
+        .swiper-button-next:active {
+            background-color: #e3e2e1;
+
+        }
+
+
+
+        .swiper-button-prev {
+            left: 0;
+            color: black;
+
+        }
+
+        .swiper-button-prev:active {
+            background-color: #e3e2e1;
+
+        }
+
+
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: black;
+        }
+
+
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .food {
+            max-width: 100%;
+        }
+
+
+        .p3:hover {
+
+            color: black;
+        }
+
+        .p3 {
+
+            color: #6e7574;
+        }
+
+        .card-container2 {
+            border-radius: 50%;
+            background-color: black;
+            height: 20px;
+            width: 20px;
+            padding: 15px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .img0 {
+            transform: scale(0.93);
+            outline: none;
+            width: 250px;
+            height: 100px;
+
+            text-align: center;
+            justify-content: center;
+        }
+
+        .img0:hover .ii4 {
+            animation-name: animate1;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+
+
+        }
+
+
+
+
+
+
+
+
+        .c100 {
+            transform: scale(0.9);
+        }
+
+        .image100 {
+            height: 70px;
+            width: 70px;
+            object-fit: cover;
+        }
+
+        .search-box {
+            transform: scale(1.34);
+        }
+
+        .i {
+            filter: drop-shadow(5px 0px 2px #a5a8a5);
+        }
+
+        .swiper-pagination-bullet {
+            background-color: white;
+            /* Replace 'blue' with any color you prefer */
+            box-shadow: 0 0 10px blue;
+            opacity: 1;
+
+        }
+
+        /* Change the color of active pagination bullets */
+        .swiper-pagination-bullet-active {
+            background-color: white;
+            /* Replace 'red' with any color you prefer */
+        }
+
+        .inav {
+            animation-name: leaf;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+        }
+
+        @keyframes leaf {
+
+            25% {
+                transform: rotateY(360deg);
+            }
+
+            50% {
+                transform: rotateZ(360deg) translateX(50%);
+            }
+
+            75% {
+                transform: rotateX(360deg);
+            }
+
+
+
+
+        }
+
+        .popup2 {
+            width: 400px;
+            z-index: 1000;
+            border-radius: 60px;
+            position: absolute;
+            cursor: pointer;
+            left: 60%;
+            background-color: white;
+            transform: translate(-50%, -50%) scale(0);
+
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .openpop3 {
+            visibility: visible;
+            top: 130%;
+
+            z-index: 1000;
+            transform: translate(-40%, -20%) scale(0.75);
+        }
+
+        .angle {
+            transition: all 0.3s;
+
+        }
+
+        .stanza2 {
+            display: none;
+        }
+
+        .ccts {
+            transform: scale(0.6);
+        }
+
+        .ii {
+            filter: drop-shadow(4px 2px 0px black);
+        }
+
+        .more {
+            display: none;
+        }
+
+        .ccts2 {
+            transform: scale(0.8);
+        }
+
+        .footer {}
+
+        .k {
+            font-size: 22px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .q {
+            font-size: 15px;
+            color: #89888a;
+
+        }
+
+        @media only screen and (max-width: 580px) {
+            .k {
+                font-size: 20px;
+            }
+
+            .q {
+                font-size: 25px;
+            }
+
+            .kk {
+                transform: scale(0.9);
+            }
+
+            .card-container2 {
+                transform: scale(1.4);
+            }
+
+            .ime {
+                transform: scale(1.4);
+            }
+
+        }
+
+        .col1 {
+            box-shadow: 0 0 5px white;
+            cursor: pointer;
+            border-style: solid;
+            border-width: 0px;
+
+            border-width: 1px;
+
+            border-radius: 6px;
+
+            border-color: #afb0b3;
+
+        }
+
+        .col2 {
+            box-shadow: 0 0 5px white;
+            cursor: pointer;
+            border-style: solid;
+            border-width: 0px;
+
+
+            border-width: 1px;
+
+            border-radius: 6px;
+
+            border-color: #afb0b3;
+
+        }
+
+        .hr {
+            border-style: solid;
+            border-color: #cccdcf;
+            border-width: 1px;
+        }
+
+        @media screen and (max-width:580px) {
+            .col1 {
+                transform: scale(0.85);
+            }
+
+            .col2 {
+                transform: scale(0.85);
+            }
+        }
+
+        .location-card {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            display: none;
+        }
+
+        .current {
+            color: #333;
+        }
+
+        .getwether {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .getwether:hover {
+            background-color: #0056b3;
+        }
+
+        .p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .weather-report {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .bg {
+            z-index: 1000;
+            background-color: transparent;
+        }
+
+        .wrapper {
+            min-width: 300px;
+            width: 100%;
+            padding: 50px;
+            position: relative;
+        }
+
+
+
+        .prev {
+            background-color: white;
+            box-shadow: 0 3px 6px black;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            z-index: 1000;
+            font-size: 10px;
+            padding: 20px;
+            font-weight: bold;
+            position: absolute;
+
+        }
+
+
+        .carousel.dragging .card {
+            cursor: grab;
+            user-select: none;
+        }
+
+        .slide-content {
+            overflow: hidden;
+
+
+        }
+
+        .swiper-button-next {
+
+            font-size: 10px;
+            color: black;
+            position: absolute;
+            transition: all ease;
+
+        }
+
+        .swiper-button-next:active {
+
+
+            background-color: #deddd9;
+
+        }
+
+        .swiper-button-prev {
+            color: black;
+            position: absolute;
+            transition: all ease-in;
+        }
+
+        .swiper-button-prev:active {
+
+
+            background-color: #deddd9;
+
+        }
+
+        .search-place-input {
+            border: solid 1px #cccdcf;
+            border-radius: 19px;
+            padding: 3px;
+            outline: none;
+        }
+
+        .search-place-input::placeholder {
+            padding: 4px;
+        }
+
+        .searchweather {
+            height: 100vh;
+
+        }
+
+        .elements {
+            transform: scale(0.74);
+            border-radius: 13px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:500px) {
+            .col1 {
+                transform: scale(0.85);
+            }
+
+            .col2 {
+                transform: scale(0.85);
+            }
+
+            .input {
+                transform: scale(0.8);
+
+            }
+
+        }
+
+        .containerx {
+            height: 1vh;
+        }
+
+        .card24 {
+            border-radius: 30px;
+        }
+
+        .round-card {
+            border-radius: 30px;
+        }
+
+        .openWheather {
+            display: none;
+        }
+
+        .bg-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chatbot-heading {
+            color: #323f4b;
+            font-family: "Roboto";
+            font-size: 30px;
+            animation-name: x;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+
+        }
+
+        .hr10 {
+            border: dashed 0.5px white;
+        }
+
+        .under {
+            border: 1px white solid;
+        }
+
+        .li1 {
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0 0 10px white;
+            color: white;
+            font-family: Roboto;
+            font-style: italic;
+            font-size: 20px;
+
+        }
+
+        .li2 {
+            background-color: white;
+            color: black;
+            box-shadow: 0 0 10px white;
+            border-radius: 10px;
+            font-family: Roboto;
+            font-style: italic;
+            font-size: 20px;
+        }
+
+
+        .sticky {
+
+            /* For Safari */
+            position: sticky;
+            top: 0;
+
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            z-index: 0;
+            /* Ensure it stays above other content */
+        }
+
+        .imagex {
+            width: 150px;
+
+            position: sticky;
+        }
+
+        .chat-container {
+            padding: 10px;
+        }
+
+        .msg-to-chatbot-container {
+            text-align: right;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .msg-to-chatbot {
+            background-color: #cbd2d9;
+            font-family: "Roboto";
+            font-weight: 900;
+            border-radius: 16px;
+            padding: 10px;
+        }
+
+        .msg-from-chatbot-container {
+            margin-top: 10px;
+            margin-bottom: 100px;
+        }
+
+        .msg-from-chatbot {
+            color: white;
+            background-color: #e57742;
+            font-family: "Roboto";
+            font-weight: 900;
+            border-radius: 16px;
+            padding: 10px;
+        }
+
+        .user-input {
+            background-color: #cbd2d9;
+            font-family: "Roboto";
+            font-weight: 900;
+            height: 52px;
+            border-width: 0;
+            border-radius: 5px;
+            margin: 8px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+
+        .user-input:hover {
+            box-shadow: 0 0 10px yellow;
+            background-color: black;
+            color: white;
+        }
+
+
+        .send-msg-btn {
+            background-color: #cbd2d9;
+            font-family: "Roboto";
+            height: 52px;
+            border-width: 0;
+            border-radius: 10px;
+            margin: 8px;
+            padding-left: 25px;
+            padding-right: 25px;
+            transition: all 0.3s;
+        }
+
+        .send-msg-btn:hover {
+            color: #cbd2d9;
+            background-color: black;
+            box-shadow: 0 0 20px #03dffc;
+        }
+
+        .delete {
+            color: white;
+            cursor: pointer;
+        }
+
+        .delete:active {
+            transform: scale(0.5);
+        }
+
+        @media screen and (max-width:580px) {
+
+            .imagex {
+                width: 150px;
+                transform: scale(0.8);
+                position: sticky;
+            }
+
+            .msg-to-chatbot-container {
+                transform: scale(0.7);
+            }
+
+            .msg-from-chatbot-container {
+                transform: scale(0.7);
+                width: 50%;
+            }
+
+            .msg-from-chatbot {
+                transform: scale(0.4);
+            }
+        }
+
+        .Bot {
+            display: none;
+
+        }
+
+        .na {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="google_translate"></div>
+    <nav>
+        <div class="bg-dark d-flex justify-content-center p-3">
+            <a href="#home" class="mr-5 a" style="color:white;text-decoration:none;">Home</a>
+            <a href="about_us.html" class="mr-5 a" style="color:white;text-decoration:none;">About Us</a>
+            <a href="https://icar.org.in/sites/default/files/2023-02/Indian-Agriculture-after-Independence.pdf" class="mr-5 a" style="color:white;text-decoration:none;">Learning Hub</a>
+            <a href=" https://krishijagran.com" class="mr-5 a" style="color:white;text-decoration:none;">Market Updates</a>
+            <a href="https://www.myscheme.gov.in/" class="mr-5 a" style="color:white;text-decoration:none;">Government Schemes</a>
+        </div>
+    </nav>
+    <div class="bg-container">
+        <div class="side-bar p-3" style="padding:6px;background-color:#002159;">
+
+            <a href="https://www.bighaat.com" class="mr-5 mb-4 a" style="color:white;text-decoration:none;font-size:25px;">Crop Kart</a>
+            <div style="color:white;">
+                <hr />
+            </div>
+            <a href="https://www.india.gov.in/topics/agriculture/marketing-prices" class="mr-5 mb-4 a" style="color:white;text-decoration:none;font-size:25px;">Crop Prices</a>
+            <hr />
+            <a href="https://plantix.net/en/ " class="mr-5 mb-4 a" style="color:white;text-decoration:none;font-size:25px;">Crop Desease Detection</a>
+            <hr />
+            <a href="https://krishi.icar.gov.in/" class="mr-5 mb-4 a" style="color:white;text-decoration:none;font-size:25px;">Crop Management</a>
+
+
+
+
+        </div>
+        <div class="content">
+
+            <div class="na mt-4" id="na">
+                <h1 class="text-center mb-4" style="font-weight:bold;">Namaste Kisaan!!!</h1>
+                <p class="text-center mb-4" style="font-weight:bold;">"मेहनत किसान की, खुशहाली हिंदुस्तान की!"</p>
+            </div>
+
+
+            <div>
+            </div>
+            <div class="openWheather climate" style="background-color:white;" id="openWheather">
+
+
+
+                <div class="searchweather mb-3" id="searchweather">
+                    <div class="d-flex flex-row justify-content-center  m-1">
+                        <div class="   text-center   p-2 mt-1" id="searchLocation">
+                            <input class="shadow search-place-input  p-3" id="cityNamee" placeholder="Search..." />
+                        </div>
+                        <div class="   text-center   p-2 mt-1" id="yourLocation">
+                            <i class="fa-solid fa-search  pt-4" style="cursor:pointer;" id="searchWhe"></i>
+                        </div>
+                    </div>
+
+                    <div class="container" style="display:flex;justify-content:center;align-items:center;">
+                        <div class="row">
+
+
+
+
+
+
+
+
+                            <div class="col-12  mb-3 pt-2 text-center d-flex justify-content-center flex-column">
+                                <img class="w-100 mb-2" src="" id="wheatherIcon" style="font-size:20px;" />
+                                <h1 class="current-temperature " id="currentTemperature">22° C</h1>
+                                <h4 class="city-name" id="cityName" style="color:#ff4a6b;">New York</h4>
+                            </div>
+                            <div class="col-4 col-lg-3 elements mb-3  d-flex flex-column justify-content-center text-center">
+                                <h6 class=""><i class="fa-solid fa-water mr-2" style="color:#4a83ff;"></i><span id="humidity">64%</span></h6>
+                                <p class="">Humidity</p>
+                            </div>
+                            <div class="col-4 col-lg-3 elements   mb-3 d-flex flex-column justify-content-center text-center">
+                                <h6 class=""><i class="fa-solid fa-wind mr-2" style="color:#739cf5;"></i><span id="windSpeed">20</span> Km/h</h6>
+                                <p class="">Wind Speed</p>
+                            </div>
+                            <div class="col-4 col-lg-3 elements  mb-3 d-flex flex-column justify-content-center text-center">
+                                <h6 class=""><i class="fa-solid fa-temperature-arrow-up mr-2" style="color:#fc2d42;"></i><span id="maxTemp">24</span>° C</h6>
+                                <p class="">Max<br />Temperature</p>
+                            </div>
+                            <div class="col-4  col-lg-3 elements mb-3 d-flex flex-column justify-content-center text-center">
+                                <h6 class=""><i class="fa-solid fa-temperature-arrow-down mr-2" style="color:#fa987d;"></i><span id="minTemp">21</span>° C</h6>
+                                <p class="">Min<br />Temperature</p>
+                            </div>
+                            <div class="col-4 col-lg-3 elements mb-3 d-flex flex-column justify-content-center text-center">
+                                <h6 class=""><i class="fa-solid fa-down-left-and-up-right-to-center mr-2" style="color:;"></i><span id="pressure">1001</span> atm</h6>
+                                <p class="">Pressure</p>
+                            </div>
+                            <div class="col-4 col-lg-3 elements  mb-3 d-flex flex-column justify-content-center text-center">
+                                <h6 class=""><i class="fa-solid fa-angles-right mr-2" style="color:#0ec98e;"></i><span id="latitude">-1.2223</span></h6>
+                                <p class="">Latitude</p>
+                            </div>
+                            <div class="col-4 col-lg-3 elements  mb-3 d-flex flex-column justify-content-center text-center">
+                                <h6 class=""><i class="fa-solid fa-angles-up mr-2" style="color:#cc0ac2;"></i><span id="longitude">3.436</span></h6>
+                                <p class="">Longitude</p>
+                            </div>
+                            <div class="col-4 col-lg-3 elements  mb-3 d-flex flex-column justify-content-center text-center">
+                                <h6 class=""><i class="fa-solid fa-water mr-2" style="color:#076cb0;"></i><span id="dt">1324</span></h6>
+                                <p class="">Sea Level</p>
+                            </div>
+                            <div class="col-4 col-lg-3 elements  mb-3 d-flex flex-column justify-content-center text-center">
+                                <h6 class=""><i class="fa-solid fa-temperature-three-quarters mr-2" style="color:#f5622c;"></i><span id="FLT">20</span>° C</h6>
+                                <p class="">Feel Like Temperature</p>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+            </div>
+            <div class="shift">
+                <div class=" " id="weatherForecasting" style="border-radius:15px;cursor:pointer;">
+                    <div class="img0 text-center m-md-2 p-2 pl-3 pr-3  shadow ccts" style='justify-content:center;text-align:center;border-radius:10px;'>
+
+
+                        <i class="fa-solid fa-cloud-bolt mb-4 ii" style="font-size:70px;color:#0f31db;"></i>
+
+                        <h4 class="priceEnng stanza1 mt-3" style="font-size:25px;">Wheather Forecasting</h4>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement({
+                    pageLanguage: 'en'
+                },
+                'google_translate'
+            );
+        }
+    </script>
+    
+
+
+    <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/2bee80ba-3f9a-4bb7-8614-c78b30af6ced/webchat/v2.1/config.js"></script>
+    <script>
+        let popup2 = document.getElementById("Popup2");
+        let popup22 = document.getElementById("Popup22");
+        let openPopUp2 = document.getElementById("openPopup2");
+        let openPopUp22 = document.getElementById("openPopup22");
+        let angle1 = document.getElementById("angle1");
+        let statex2 = false;
+
+
+
+
+        let hindi = document.getElementById("hindi");
+        let eng = document.getElementById("eng");
+        let marathi = document.getElementById("marathi");
+        let language = document.getElementById("language");
+        let hindi2 = document.getElementById("hindi2");
+        let eng2 = document.getElementById("eng2");
+        let marathi2 = document.getElementById("marathi2");
+        let language2 = document.getElementById("language2");
+
+
+
+
+
+        document.querySelectorAll(".addMore").forEach(function(button) {
+            button.onclick = function() {
+                document.querySelectorAll(".more").forEach(function(ele) {
+                    ele.style.display = "block";
+                });
+                document.querySelectorAll(".addMore").forEach(function(btn) {
+                    btn.style.display = "none";
+                });
+            };
+        });
+
+        document.querySelectorAll(".showLess").forEach(function(button) {
+            button.onclick = function() {
+                document.querySelectorAll(".more").forEach(function(ele) {
+                    ele.style.display = "none";
+                });
+                document.querySelectorAll(".addMore").forEach(function(btn) {
+                    btn.style.display = "block";
+                });
+            };
+        });
+
+
+        let weatherForecasting = document.getElementById("weatherForecasting");
+        let view = document.getElementById("view");
+        let openWheather = document.getElementById("openWheather");
+        let na = document.getElementById('na');
+        weatherForecasting.onclick = function() {
+            na.classList.toggle('na')
+            openWheather.classList.toggle("openWheather")
+        }
+
+        let searchweather = document.getElementById("searchweather");
+        let yourLocation = document.getElementById("yourLocation");
+        let searchLocation = document.getElementById("searchLocation");
+        let locationCard = document.getElementById("locationCard");
+        let bgDark = document.getElementById("bgDark");
+        let LocationIcon = document.getElementById("LocationIcon");
+
+
+        let currentTemperature = document.getElementById("currentTemperature");
+        let cityName = document.getElementById("cityName");
+        let humidity = document.getElementById("humidity");
+        let windSpeed = document.getElementById("windSpeed");
+        let maxTemp = document.getElementById("maxTemp");
+        let minTemp = document.getElementById("minTemp");
+        let pressure = document.getElementById("pressure");
+        let wheatherIcon = document.getElementById("wheatherIcon");
+        let searchWhe = document.getElementById("searchWhe");
+        let cityNamee = document.getElementById("cityNamee");
+        let latitude = document.getElementById("latitude");
+        let longitude = document.getElementById("longitude");
+        let dt = document.getElementById("dt");
+        let flt = document.getElementById("FLT");
+        let day1 = document.getElementById("day1");
+        let temp1 = document.getElementById("temp1");
+        let feel1 = document.getElementById("feel1");
+        let humid1 = document.getElementById("humid1");
+        let day2 = document.getElementById("day2");
+        let temp2 = document.getElementById("temp2");
+        let feel2 = document.getElementById("feel2");
+        let humid2 = document.getElementById("humid2");
+        let day3 = document.getElementById("day3");
+        let temp3 = document.getElementById("temp3");
+        let feel3 = document.getElementById("feel3");
+        let humid3 = document.getElementById("humid3");
+        let day4 = document.getElementById("day4");
+        let temp4 = document.getElementById("temp4");
+        let feel4 = document.getElementById("feel4");
+        let humid4 = document.getElementById("humid4");
+
+
+        function seaWheather() {
+            let url = "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=d8ff55d5ebb2aaf1901fb2153e39c50e&exclude=minutely&units=metric&q=" + cityNamee.value;
+
+            let options = {
+                method: "GET",
+            };
+            fetch(url, options)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(jsonData) {
+                    currentTemperature.textContent = jsonData.main.temp + "°C";
+                    cityName.textContent = jsonData.name;
+                    humidity.textContent = jsonData.main.humidity;
+                    minTemp.textContent = jsonData.main.temp_min;
+                    maxTemp.textContent = jsonData.main.temp_max;
+                    pressure.textContent = jsonData.main.pressure;
+                    wheatherIcon.style.background = `url(https://openweathermap.org/img/wn/${jsonData.weather[0].icon}@2x.png)`;
+                    latitude.textContent = jsonData.coord.lat;
+                    longitude.textContent = jsonData.coord.lon;
+                    dt.textContent = jsonData.main.sea_level;
+                    flt.textContent = jsonData.main.feels_like;
+                });
+
+        }
+
+        function seaFutureWheather() {
+            let url = "";
+            let options = {
+                method: "GET",
+            };
+            fetch(url, options)
+                .then(function(responsee) {
+                    return responsee.json;
+                })
+
+        }
+        searchWhe.onclick = function() {
+            seaWheather();
+            seaFutureWheather();
+        };
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                // Code to run when Enter is pressed
+                seaWheather();
+            }
+        });
+    </script>
